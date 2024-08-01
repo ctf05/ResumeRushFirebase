@@ -1,0 +1,396 @@
+[debug] [2024-07-31T04:30:47.006Z] ----------------------------------------------------------------------
+[debug] [2024-07-31T04:30:47.008Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\chris\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-07-31T04:30:47.009Z] CLI Version:   13.14.2
+[debug] [2024-07-31T04:30:47.009Z] Platform:      win32
+[debug] [2024-07-31T04:30:47.009Z] Node Version:  v20.16.0
+[debug] [2024-07-31T04:30:47.009Z] Time:          Wed Jul 31 2024 00:30:47 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-07-31T04:30:47.009Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-31T04:30:47.058Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-31T04:30:47.058Z] > authorizing via signed-in user (christianbeadling@gmail.com)
+[debug] [2024-07-31T04:30:47.059Z] [iam] checking project resumerushgodot for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-07-31T04:30:47.060Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions [none]
+[debug] [2024-07-31T04:30:47.060Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:30:47.060Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-07-31T04:30:47.320Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions 200
+[debug] [2024-07-31T04:30:47.320Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-07-31T04:30:47.321Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-07-31T04:30:47.321Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-31T04:30:47.547Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-07-31T04:30:47.548Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'resumerushgodot'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-07-31T04:30:47.868Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot [none]
+[debug] [2024-07-31T04:30:48.191Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot 200
+[debug] [2024-07-31T04:30:48.191Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot {"projectId":"resumerushgodot","projectNumber":"789792728951","displayName":"ResumeRushGodot","name":"projects/resumerushgodot","resources":{"hostingSite":"resumerushgodot","realtimeDatabaseInstance":"resumerushgodot-default-rtdb"},"state":"ACTIVE","etag":"1_ca933522-62af-43be-8003-234e75d6a8c0"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-07-31T04:30:48.193Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-07-31T04:30:48.193Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:30:48.194Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-07-31T04:30:48.194Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:30:48.195Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com [none]
+[debug] [2024-07-31T04:30:48.195Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:30:48.196Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com [none]
+[debug] [2024-07-31T04:30:48.196Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:30:48.612Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com 200
+[debug] [2024-07-31T04:30:48.612Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-07-31T04:30:48.615Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com 200
+[debug] [2024-07-31T04:30:48.615Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-07-31T04:30:48.621Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com 200
+[debug] [2024-07-31T04:30:48.621Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-07-31T04:30:48.623Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com 200
+[debug] [2024-07-31T04:30:48.623Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-07-31T04:30:48.623Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig [none]
+[debug] [2024-07-31T04:30:48.907Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig 200
+[debug] [2024-07-31T04:30:48.907Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig {"projectId":"resumerushgodot","databaseURL":"https://resumerushgodot-default-rtdb.firebaseio.com","storageBucket":"resumerushgodot.appspot.com"}
+[debug] [2024-07-31T04:30:48.908Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs [none]
+[debug] [2024-07-31T04:30:49.044Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs 200
+[debug] [2024-07-31T04:30:49.044Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs {}
+[debug] [2024-07-31T04:30:49.046Z] Validating nodejs source
+[debug] [2024-07-31T04:30:49.720Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.3.0",
+    "firebase-functions": "^5.0.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-07-31T04:30:49.720Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-07-31T04:30:49.721Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-07-31T04:30:49.728Z] Found firebase-functions binary at 'C:\Users\chris\IdeaProjects\ResumeRush\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8625
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8625
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (C:\Users\chris\IdeaProjects\ResumeRush\functions\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (C:\Users\chris\IdeaProjects\ResumeRush\functions\index.js:68:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1940:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8625
+}
+
+Node.js v20.16.0
+
+[debug] [2024-07-31T04:30:49.944Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8625/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8625/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-07-31T04:30:50.059Z] FetchError: request to http://127.0.0.1:8625/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\chris\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-07-31T04:35:22.198Z] ----------------------------------------------------------------------
+[debug] [2024-07-31T04:35:22.200Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\chris\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-07-31T04:35:22.200Z] CLI Version:   13.14.2
+[debug] [2024-07-31T04:35:22.200Z] Platform:      win32
+[debug] [2024-07-31T04:35:22.201Z] Node Version:  v20.16.0
+[debug] [2024-07-31T04:35:22.201Z] Time:          Wed Jul 31 2024 00:35:22 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-07-31T04:35:22.201Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-31T04:35:22.252Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-31T04:35:22.252Z] > authorizing via signed-in user (christianbeadling@gmail.com)
+[debug] [2024-07-31T04:35:22.252Z] [iam] checking project resumerushgodot for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-07-31T04:35:22.254Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions [none]
+[debug] [2024-07-31T04:35:22.254Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:35:22.254Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-07-31T04:35:22.456Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions 200
+[debug] [2024-07-31T04:35:22.456Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-07-31T04:35:22.457Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-07-31T04:35:22.457Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-31T04:35:22.716Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-07-31T04:35:22.716Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'resumerushgodot'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-07-31T04:35:23.030Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot [none]
+[debug] [2024-07-31T04:35:23.415Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot 200
+[debug] [2024-07-31T04:35:23.415Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot {"projectId":"resumerushgodot","projectNumber":"789792728951","displayName":"ResumeRushGodot","name":"projects/resumerushgodot","resources":{"hostingSite":"resumerushgodot","realtimeDatabaseInstance":"resumerushgodot-default-rtdb"},"state":"ACTIVE","etag":"1_ca933522-62af-43be-8003-234e75d6a8c0"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-07-31T04:35:23.418Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-07-31T04:35:23.418Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:35:23.419Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-07-31T04:35:23.419Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:35:23.420Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com [none]
+[debug] [2024-07-31T04:35:23.420Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:35:23.420Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com [none]
+[debug] [2024-07-31T04:35:23.420Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:35:23.873Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com 200
+[debug] [2024-07-31T04:35:23.873Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-07-31T04:35:23.876Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com 200
+[debug] [2024-07-31T04:35:23.876Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-07-31T04:35:23.884Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com 200
+[debug] [2024-07-31T04:35:23.884Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-07-31T04:35:23.918Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com 200
+[debug] [2024-07-31T04:35:23.918Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-07-31T04:35:23.918Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig [none]
+[debug] [2024-07-31T04:35:24.210Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig 200
+[debug] [2024-07-31T04:35:24.210Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig {"projectId":"resumerushgodot","databaseURL":"https://resumerushgodot-default-rtdb.firebaseio.com","storageBucket":"resumerushgodot.appspot.com"}
+[debug] [2024-07-31T04:35:24.210Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs [none]
+[debug] [2024-07-31T04:35:24.365Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs 200
+[debug] [2024-07-31T04:35:24.365Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs {}
+[debug] [2024-07-31T04:35:24.366Z] Validating nodejs source
+[debug] [2024-07-31T04:35:25.044Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.3.0",
+    "firebase-functions": "^5.0.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-07-31T04:35:25.044Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-07-31T04:35:25.045Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-07-31T04:35:25.052Z] Found firebase-functions binary at 'C:\Users\chris\IdeaProjects\ResumeRush\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8405
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8405
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (C:\Users\chris\IdeaProjects\ResumeRush\functions\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (C:\Users\chris\IdeaProjects\ResumeRush\functions\index.js:68:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1940:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8405
+}
+
+Node.js v20.16.0
+
+[debug] [2024-07-31T04:35:25.265Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8405/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8405/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-07-31T04:35:25.381Z] FetchError: request to http://127.0.0.1:8405/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\chris\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-07-31T04:37:06.448Z] ----------------------------------------------------------------------
+[debug] [2024-07-31T04:37:06.450Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\chris\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2024-07-31T04:37:06.450Z] CLI Version:   13.14.2
+[debug] [2024-07-31T04:37:06.450Z] Platform:      win32
+[debug] [2024-07-31T04:37:06.451Z] Node Version:  v20.16.0
+[debug] [2024-07-31T04:37:06.451Z] Time:          Wed Jul 31 2024 00:37:06 GMT-0400 (Eastern Daylight Time)
+[debug] [2024-07-31T04:37:06.451Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-31T04:37:06.501Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-31T04:37:06.501Z] > authorizing via signed-in user (christianbeadling@gmail.com)
+[debug] [2024-07-31T04:37:06.501Z] [iam] checking project resumerushgodot for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-07-31T04:37:06.502Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions [none]
+[debug] [2024-07-31T04:37:06.502Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:37:06.503Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-07-31T04:37:06.754Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions 200
+[debug] [2024-07-31T04:37:06.754Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/resumerushgodot:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-07-31T04:37:06.755Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-07-31T04:37:06.755Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-07-31T04:37:06.974Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-07-31T04:37:06.974Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/resumerushgodot/serviceAccounts/resumerushgodot@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'resumerushgodot'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-07-31T04:37:07.286Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot [none]
+[debug] [2024-07-31T04:37:07.616Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot 200
+[debug] [2024-07-31T04:37:07.616Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot {"projectId":"resumerushgodot","projectNumber":"789792728951","displayName":"ResumeRushGodot","name":"projects/resumerushgodot","resources":{"hostingSite":"resumerushgodot","realtimeDatabaseInstance":"resumerushgodot-default-rtdb"},"state":"ACTIVE","etag":"1_ca933522-62af-43be-8003-234e75d6a8c0"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-07-31T04:37:07.619Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-07-31T04:37:07.619Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:37:07.620Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-07-31T04:37:07.620Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:37:07.620Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com [none]
+[debug] [2024-07-31T04:37:07.620Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:37:07.621Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com [none]
+[debug] [2024-07-31T04:37:07.621Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com x-goog-quota-user=projects/resumerushgodot
+[debug] [2024-07-31T04:37:07.991Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com 200
+[debug] [2024-07-31T04:37:07.991Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-07-31T04:37:08.008Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com 200
+[debug] [2024-07-31T04:37:08.008Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-07-31T04:37:08.011Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com 200
+[debug] [2024-07-31T04:37:08.011Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-07-31T04:37:08.021Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com 200
+[debug] [2024-07-31T04:37:08.021Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/resumerushgodot/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-07-31T04:37:08.021Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig [none]
+[debug] [2024-07-31T04:37:08.358Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig 200
+[debug] [2024-07-31T04:37:08.359Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resumerushgodot/adminSdkConfig {"projectId":"resumerushgodot","databaseURL":"https://resumerushgodot-default-rtdb.firebaseio.com","storageBucket":"resumerushgodot.appspot.com"}
+[debug] [2024-07-31T04:37:08.359Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs [none]
+[debug] [2024-07-31T04:37:08.506Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs 200
+[debug] [2024-07-31T04:37:08.506Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/resumerushgodot/configs {}
+[debug] [2024-07-31T04:37:08.507Z] Validating nodejs source
+[debug] [2024-07-31T04:37:09.172Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.3.0",
+    "firebase-functions": "^5.0.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-07-31T04:37:09.172Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-07-31T04:37:09.173Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-07-31T04:37:09.180Z] Found firebase-functions binary at 'C:\Users\chris\IdeaProjects\ResumeRush\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8511
+
+[error] node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8511
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at Function.listen (C:\Users\chris\IdeaProjects\ResumeRush\functions\node_modules\express\lib\application.js:635:24)
+    at Object.<anonymous> (C:\Users\chris\IdeaProjects\ResumeRush\functions\index.js:68:5)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1940:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8511
+}
+
+Node.js v20.16.0
+
+[debug] [2024-07-31T04:37:09.398Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8511/__/quitquitquit failed, reason:  {"message":"request to http://localhost:8511/__/quitquitquit failed, reason: ","type":"system","errno":"ECONNREFUSED","code":"ECONNREFUSED"}
+[debug] [2024-07-31T04:37:09.488Z] FetchError: request to http://127.0.0.1:8511/__/functions.yaml failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (C:\Users\chris\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:519:28)
+    at ClientRequest.emit (node:domain:488:12)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:488:12)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: An unexpected error has occurred.
