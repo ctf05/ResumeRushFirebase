@@ -141,7 +141,7 @@ async function sendOffer(roomId, senderId, targetId, offer) {
         throw new Error('Invalid offer direction');
     }
 
-    await roomRef.child(`offers/${senderId}_${targetId}`).set(offer);
+    await roomRef.child(`offers/${senderId}`).set(offer);
 
     // Notify the target about the new offer
     await addNotification(roomId, targetId, {
@@ -162,7 +162,7 @@ async function sendAnswer(roomId, senderId, targetId, answer) {
         throw new Error('Room not found');
     }
 
-    await roomRef.child(`answers/${targetId}_${senderId}`).set(answer);
+    await roomRef.child(`answers/${senderId}`).set(answer);
 
     // Notify the target about the new answer
     await addNotification(roomId, targetId, {
@@ -183,7 +183,7 @@ async function sendIceCandidates(roomId, senderId, targetId, candidates) {
 
     const updates = {};
     candidates.forEach((candidate, index) => {
-        updates[`ice_candidates/${senderId}_${targetId}/candidate_${Date.now()}_${index}`] = candidate;
+        updates[`ice_candidates/${senderId}/candidate_${Date.now()}_${index}`] = candidate;
     });
 
     await roomRef.update(updates);
