@@ -45,7 +45,7 @@ exports.webRTCSignaling = functions.https.onRequest(async (request, response) =>
                     result = await sendIceCandidates(roomId, playerId, targetId, data);
                     break;
                 case 'find_available_room':
-                    result = await findAvailableRoom(playerId);
+                    result = await findAvailableRoom();
                     break;
                 default:
                     throw new Error('Invalid action: ' + action);
@@ -63,7 +63,7 @@ exports.webRTCSignaling = functions.https.onRequest(async (request, response) =>
  * Finds an available room for quick play
  * @returns {Promise<{roomId: string|null}>}
  */
-async function findAvailableRoom(playerId) {
+async function findAvailableRoom() {
     const roomsRef = db.ref('rooms');
     const snapshot = await roomsRef.once('value');
     const rooms = snapshot.val() || {};
@@ -74,25 +74,26 @@ async function findAvailableRoom(playerId) {
 
     // Filter and sort available rooms
     const availableRooms = Object.entries(rooms)
-        .filter(([roomId, roomData]) => {
+        .filter(([_, room]) => {
             // Check if room exists and has players
-            if (!roomData || !roomData.players) {
+            if (!room || !room.players) {
                 return false;
             }
 
             // Check if room was created within the last hour
-            const roomAge = now - roomData.createdAt;
+            const roomAge = now - room.createdAt;
             if (roomAge > ONE_HOUR) {
                 return false;
             }
 
             // Check if room has space
-            const playerCount = Object.keys(roomData.players).length;
+            const playerCount = Object.keys(room.players).length;
             return playerCount < MAX_PLAYERS;
         })
-        .sort(([roomId1, roomData1], [roomId2, roomData2]) => {
-            const playersA = Object.keys(roomData1.players).length;
-            const playersB = Object.keys(roomData2.players).length;
+        // Sort rooms by player count (descending) to fill rooms efficiently
+        .sort(([_, roomA], [_, roomB]) => {
+            const playersA = Object.keys(roomA.players).length;
+            const playersB = Object.keys(roomB.players).length;
             return playersB - playersA;
         });
 
@@ -100,12 +101,9 @@ async function findAvailableRoom(playerId) {
         return { roomId: null };
     }
 
-    // Get the first available room
+    // Return the first available room
     const [roomId, _] = availableRooms[0];
-
-    // Automatically join the room
-    const joinResult = await joinRoom(roomId, playerId);
-    return { ...joinResult, roomId };
+    return { roomId };
 }
 
 async function createRoom(roomId, hostId) {
