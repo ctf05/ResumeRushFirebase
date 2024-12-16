@@ -74,26 +74,25 @@ async function findAvailableRoom(playerId) {
 
     // Filter and sort available rooms
     const availableRooms = Object.entries(rooms)
-        .filter(([_, room]) => {
+        .filter(([roomId, roomData]) => {
             // Check if room exists and has players
-            if (!room || !room.players) {
+            if (!roomData || !roomData.players) {
                 return false;
             }
 
             // Check if room was created within the last hour
-            const roomAge = now - room.createdAt;
+            const roomAge = now - roomData.createdAt;
             if (roomAge > ONE_HOUR) {
                 return false;
             }
 
             // Check if room has space
-            const playerCount = Object.keys(room.players).length;
+            const playerCount = Object.keys(roomData.players).length;
             return playerCount < MAX_PLAYERS;
         })
-        // Sort rooms by player count (descending) to fill rooms efficiently
-        .sort(([_, roomA], [_, roomB]) => {
-            const playersA = Object.keys(roomA.players).length;
-            const playersB = Object.keys(roomB.players).length;
+        .sort(([roomId1, roomData1], [roomId2, roomData2]) => {
+            const playersA = Object.keys(roomData1.players).length;
+            const playersB = Object.keys(roomData2.players).length;
             return playersB - playersA;
         });
 
